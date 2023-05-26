@@ -16,17 +16,33 @@ age = prompt('Inserisci l\'età del passeggero' , '20');
 console.log(age);
 
 
-// Calcola il prezzo del biglietto in base ai chilometri
-tPrice = km * 0.21;
+// ! Validazione
 
-// Calcolo dell'età
-if (age < 18) {
+let validation = true;
+let message;
+
+if (isNaN(km) || isNaN(age)) {
+    validation = false;
+    message = ('Devi inserire un numero');
+} 
+
+
+if (validation === true) {
+    // Calcola il prezzo del biglietto in base ai chilometri
+    tPrice = km * 0.21;
+
+    // Calcolo dell'età
+    if (age < 18) {
     tPrice += - (tPrice * 0.2);
     console.log(tPrice);
-} else if (age > 64) {
+    } else if (age > 64) {
     tPrice += - (tPrice * 0.4);
     console.log(tPrice);
+    }
+    // Trova il placeholder nel DOM e inserisci il prezzo
+    document.getElementById('priceHolder').innerText = tPrice.toFixed(2)
+
+} else {
+    alert(message);
 }
 
-// Trova il placeholder nel DOM e inserisci il prezzo
-document.getElementById('priceHolder').innerText = tPrice.toFixed(2)
