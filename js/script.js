@@ -39,8 +39,10 @@ if (validation === true) {
     tPrice += - (tPrice * 0.4);
     console.log(tPrice);
     }
-    // Trova il placeholder nel DOM e inserisci il prezzo
-    document.getElementById('priceHolder').innerText = tPrice.toFixed(2)
+    // Trova il placeholder nel DOM e inserisci il prezzo, l'età e i chilometri
+    document.getElementById('pricePlaceHolder').innerText = tPrice.toFixed(2);
+    document.getElementById('kmPlaceHolder').innerText = km;
+    document.getElementById('agePlaceHolder').innerText = age;
 
 } else {
     alert(message);
